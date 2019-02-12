@@ -71,3 +71,7 @@ help: ## Show this help
 .PHONY: version
 version: ## Show current version
 	@echo "v$(VERSION)"
+
+.PHONY: config
+config: ## Open config file (at default path)
+	code ~/.config/gphotos-uploader-cli/config.hjson

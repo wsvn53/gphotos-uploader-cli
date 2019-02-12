@@ -34,5 +34,5 @@ func (gm *GifTypedMedia) IsCorrectlyUploaded(uploadedFileURL, localFilePath stri
 		return true, nil
 	}
 
-	return false, errors.New("gif was not uploaded correctly. Not deleting local file")
+	return false, errors.Errorf("Not sure if gif was uploaded correctly. Not deleting local file. URL: %s", uploadedFileURL)
 }
