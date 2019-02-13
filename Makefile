@@ -74,4 +74,4 @@ version: ## Show current version
 
 .PHONY: config
 config: ## Open config file (at default path)
-	code ~/.config/gphotos-uploader-cli/config.hjson
+	open ~/.config/gphotos-uploader-cli/config.hjson || xdg-open ~/.config/gphotos-uploader-cli/config.hjson || gnome-open ~/.config/gphotos-uploader-cli/config.hjson || kde-open ~/.config/gphotos-uploader-cli/config.hjson
