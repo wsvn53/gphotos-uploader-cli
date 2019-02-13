@@ -74,13 +74,13 @@ func (fileUpload *FileUpload) upload() error { // TODO: upload to fileUpload.Alb
 	// queue uploaded image for visual check of result + deletion
 	if fileUpload.DeleteAfterUpload {
 		// get uploaded media URL into mediaItem
-		uploadedMediaItem, err := fileUpload.gphotosClient.MediaItems.Get(uploadedMediaItem.Id).Do()
+		fetchedMediaItem, err := fileUpload.gphotosClient.MediaItems.Get(uploadedMediaItem.Id).Do()
 		if err != nil {
 			return errors.Annotate(err, "failed getting uploaded mediaItem")
 		}
 
 		return QueueDeletionJob(DeletionJob{
-			uploadedMediaItem.BaseUrl,
+			fetchedMediaItem.ProductUrl,
 			fileUpload.filePath,
 			fileUpload.typedMedia,
 		})
